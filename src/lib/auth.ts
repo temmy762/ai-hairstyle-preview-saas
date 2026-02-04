@@ -57,7 +57,7 @@ export const authOptions: NextAuthOptions = {
           token.name = session.user.name;
         }
         if (session.user.image !== undefined) {
-          token.image = session.user.image as string | null | undefined;
+          token.image = session.user.image ?? undefined;
         }
       }
       return token;

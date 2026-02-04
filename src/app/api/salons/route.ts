@@ -42,6 +42,13 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!session.user?.id) {
+      return NextResponse.json(
+        { error: "User ID not found in session" },
+        { status: 401 }
+      );
+    }
+
     const body = await request.json();
     const { name, slug, status, type, services, credits } = body;
 
@@ -80,7 +87,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const newSalon = await createSalon({ name, slug, status, type, services, credits });
+    const newSalon = await createSalon({ name, slug, status, type, services, credits, hairStyles: [], userId: session.user.id });
 
     return NextResponse.json(
       { message: "Salon created successfully", salon: newSalon },
