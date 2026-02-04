@@ -69,7 +69,7 @@ export default function AdminPage() {
       }
 
       setShowCreateModal(false);
-      setFormData({ name: "", slug: "", status: "active", credits: 0 });
+      setFormData({ name: "", slug: "", status: "active", type: "hairsalon", services: "both", credits: 0 });
       fetchSalons();
     } catch (err) {
       setError("An error occurred");
