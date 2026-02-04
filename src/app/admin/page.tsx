@@ -146,7 +146,7 @@ export default function AdminPage() {
             Manage salons and platform settings
           </p>
         </div>
-        <Button onClick={() => { setShowCreateModal(true); setFormData({ name: "", slug: "", status: "active", credits: 0 }); setError(""); }}>
+        <Button onClick={() => { setShowCreateModal(true); setFormData({ name: "", slug: "", status: "active", type: "hairsalon", services: "both", credits: 0 }); setError(""); }}>
           <svg className="h-4 w-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
           </svg>
