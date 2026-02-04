@@ -52,7 +52,7 @@ export function AppHeader({ title }: AppHeaderProps) {
   }, []);
 
   const handleLogout = async () => {
-    await signOut({ callbackUrl: "/" });
+    await signOut({ callbackUrl: `${window.location.origin}/` });
   };
 
   return (
