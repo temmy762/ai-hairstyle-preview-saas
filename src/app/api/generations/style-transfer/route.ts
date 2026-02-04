@@ -105,11 +105,15 @@ export async function POST(request: Request) {
     console.log(`[StyleTransfer] Style transfer completed in ${aiResponse.processingTime}ms`);
 
     const generation = await createGeneration({
+      id: String(Date.now()),
       salonId,
       inputImageId,
       outputImagePath: aiResponse.outputImagePath,
       hairStyleId,
       generationType: "style-reference",
+      variations,
+      processingTime: aiResponse.processingTime,
+      creditCost: variations,
     });
 
     console.log(`[StyleTransfer] Generation logged with ID: ${generation.id}`);
